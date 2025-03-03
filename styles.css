@@ -1,0 +1,114 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background: #f5f5dc; /* Light cream background */
+}
+
+.slides-container {
+    position: relative;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.slide {
+    position: relative;
+    height: 100vh;
+    scroll-snap-align: start;
+    overflow: hidden;
+}
+
+.slide-number {
+    font: 'courier new', monospace;
+    position: absolute;
+    font-size: 55vw;
+    font-weight: 900;
+    pointer-events: none;
+    z-index: 0;
+    left: 85%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    opacity: 0.55;
+}
+
+/* Pastel colors */
+.slide:nth-child(1) .slide-number { color: #ffb3ba; } /* Pastel red */
+.slide:nth-child(2) .slide-number { color: #b3d9ff; } /* Pastel blue */
+.slide:nth-child(3) .slide-number { color: #B39EB5; } /* Pastel yellow */
+.slide:nth-child(4) .slide-number { color: #b3ffb3; } /* Pastel green */
+
+.slide-content {
+    background: rgba(255, 255, 255, 0.97);
+    width: 80%;
+    max-width: 60vw;
+    min-height: 65vh;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 3rem;
+    position: relative;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.slide h2 {
+    color: #4a4a4a;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.slide p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Parallax effect adjustments */
+.slide-number {
+    transition: transform 0.5s ease-out;
+}
+
+/* Add to styles.css */
+.nav-sidebar {
+    position: fixed;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    mix-blend-mode: multiply;
+}
+
+.nav-links {
+    list-style: none;
+    position: relative;
+}
+
+.nav-item {
+    color: #4a4a4a;
+    font-size: 1.1rem;
+    margin: 50px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding-left: 30px;
+    position: relative;
+    opacity: 0.6;
+}
+
+.nav-item:hover {
+    opacity: 1;
+    transform: translateX(10px);
+}
+
+.nav-item.active {
+    opacity: 1;
+    font-weight: bold;
+}
