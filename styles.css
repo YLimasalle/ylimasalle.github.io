@@ -48,7 +48,7 @@ body {
     background: rgba(255, 255, 255, 0.97);
     width: 80%;
     max-width: 60vw;
-    min-height: 65vh;
+    min-height: 75vh;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     padding: 3rem;
@@ -78,6 +78,123 @@ body {
 }
 
 /* Add to styles.css */
+.intro-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+}
+
+.name-title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.intro-tagline {
+    margin-bottom: 2rem;
+}
+
+.role {
+    font-size: 1.8rem;
+    color: #4a4a4a;
+    margin-bottom: 0.5rem;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+}
+
+.pin-icon {
+    width: 20px;
+    height: 20px;
+    fill: #ff6b6b;
+}
+
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.tech-badges span {
+    background: rgba(255,255,255,0.9);
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.photo-container {
+    position: relative;
+    height: 100%;
+}
+
+.photo-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    animation: float 6s ease-in-out infinite;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(255,255,255,0.2) 0%,
+        rgba(255,255,255,0) 100%
+    );
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .intro-content {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .name-title {
+        font-size: 3rem;
+    }
+    
+    .photo-frame {
+        position: relative;
+        height: 400px;
+    }
+    
+    .tech-badges {
+        justify-content: center;
+    }
+}
+
+
 .nav-sidebar {
     position: fixed;
     left: 30px;
@@ -111,4 +228,52 @@ body {
 .nav-item.active {
     opacity: 1;
     font-weight: bold;
+}
+
+.mobile-arrow {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px;
+}
+
+.mobile-arrow svg {
+    width: 100%;
+    height: 100%;
+    fill: #808080;
+    transform: rotate(180deg);
+}
+
+.mobile-arrow:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .mobile-arrow {
+        display: block;
+    }
+    
+    .nav-sidebar {
+        display: none;
+    }
+    
+    .slide-content {
+        width: 90%;
+        min-height: 85vh;
+        padding: 1.5rem;
+    }
+    
+    .slide-number {
+        font-size: 30vw;
+    }
 }

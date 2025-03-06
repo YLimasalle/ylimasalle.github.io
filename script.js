@@ -4,7 +4,9 @@ const slides = document.querySelectorAll('.slide');
 const slideNumbers = document.querySelectorAll('.slide-number');
 const totalSlides = slides.length;
 
-// Configuration
+const mobileArrow = document.getElementById('mobileArrow');
+let currentSlideIndex = 0;
+
 const parallaxRatio = 0.3;
 const numberParallaxRatio = 0.15; // Different ratio for numbers
 
@@ -25,6 +27,18 @@ function updateParallax() {
         const numberTranslation = (scrollPosition - slideOffset) * numberParallaxRatio;
         number.style.transform = `translate(-50%, calc(-50% + ${numberTranslation}px))`;
     });
+}
+
+function updateArrow() {
+    const scrollTop = slidesContainer.scrollTop;
+    currentSlideIndex = Math.round(scrollTop / window.innerHeight);
+    
+    // Rotate arrow on last slide
+    if (currentSlideIndex === slides.length - 1) {
+        mobileArrow.style.transform = 'translateX(-50%) rotate(180deg)';
+    } else {
+        mobileArrow.style.transform = 'translateX(-50%) rotate(0deg)';
+    }
 }
 
 // Event listeners
@@ -97,9 +111,32 @@ navItems.forEach((item, index) => {
     });
 });
 
+function handleArrowClick() {
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    slidesContainer.scrollTo({
+        top: currentSlideIndex * window.innerHeight,
+        behavior: 'smooth'
+    });
+}
+
 // Update navigation on scroll
 slidesContainer.addEventListener('scroll', updateNavigation);
 window.addEventListener('resize', updateNavigation);
+mobileArrow.addEventListener('click', handleArrowClick);
+slidesContainer.addEventListener('scroll', updateArrow);
+
+// Hide arrow during scroll on mobile
+let scrollTimeout;
+slidesContainer.addEventListener('scroll', () => {
+    mobileArrow.style.opacity = '0';
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        mobileArrow.style.opacity = '1';
+    }, 1000);
+});
+
+// Initial update
+updateArrow();
 
 // Initial positioning
 updateParallax();

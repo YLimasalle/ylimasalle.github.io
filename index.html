@@ -20,11 +20,37 @@
     </div>
     
     <div class="slides-container">
-        <div class="slide">
+        <!-- Update Slide 1 in index.html -->
+        <div class="slide" data-slide="1">
             <div class="slide-number">1</div>
-            <div class="slide-content">
-                <h2>First Slide</h2>
-                <p>Content for slide 1</p>
+            <div class="slide-content intro-content">
+                <div class="intro-text">
+                    <h1 class="name-title">John Colorado</h1>
+                    <div class="intro-tagline">
+                        <p class="role">Full Stack Developer</p>
+                        <div class="location">
+                            <svg class="pin-icon" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            <span>Based in Colorado</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-badges">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>Python</span>
+                        <span>AWS</span>
+                    </div>
+                </div>
+
+                <div class="photo-container">
+                    <div class="photo-frame">
+                        <!-- Replace with your actual photo path -->
+                        <img src="your-photo.jpg" alt="John Colorado" class="profile-photo">
+                        <div class="photo-gradient"></div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="slide">
@@ -48,6 +74,12 @@
                 <p>Content for slide 4</p>
             </div>
         </div>
+    </div>
+
+    <div class="mobile-arrow" id="mobileArrow">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 4l-6 6h4v10h4V10h4l-6-6z"/>
+        </svg>
     </div>
 
     <script src="script.js"></script>
