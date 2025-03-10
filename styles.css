@@ -20,6 +20,7 @@ font-weight: 300; */
     --pastel-purple: #B39EB5;
     --pastel-green: #b3ffb3;
     --accent-purple: #7E5185;
+    --accent-blue: #3A506B;
 }
 
 * {
@@ -241,8 +242,111 @@ body {
     );
 }
 
+/* SLIDE 2 */
 
-/* SLIDE 3 */
+.slide[data-slide="2"] .deco-line {
+    background: var(--accent-blue);
+}
+
+/* Vertical Stack Layout */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    /* gap: 3rem; */
+    margin: 0 auto;
+    padding: 2rem;
+    height: 80%;
+    max-width: 70vw;
+}
+
+/* 1. Title Section */
+.about-header {
+    text-align: left;
+    padding-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.about-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: #2a2a2a;
+}
+
+/* 2. Body Content */
+.about-body {
+    display: grid;
+    margin-left: 1rem;
+
+}
+
+.story-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+
+.value-card {
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* 3. Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    padding: 2rem 0;
+    border-top: 2px solid rgba(0,0,0,0.1);
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-icon {
+    width: 60px;
+    height: 60px;
+    padding: 12px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .about-content {
+        gap: 2rem;
+        padding: 1rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+    
+    .skill-icon {
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+    }
+}
+
+
+
+/* SLIDE 4 */
 
 .resume-content {
     max-width: 1200px;
@@ -309,7 +413,7 @@ body {
     width: 100%;
 }
 
-.slide[data-slide="3"] .deco-line {
+.slide[data-slide="4"] .deco-line {
     background: var(--accent-purple);
 }
 
