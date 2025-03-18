@@ -14,6 +14,11 @@ const numberParallaxRatio = 0.15; // Different ratio for numbers
 const navItems = document.querySelectorAll('.nav-item');
 const progressIndicator = document.querySelector('.nav-progress');
 
+// Modal Handling
+const projectButtons = document.querySelectorAll('.project-btn');
+const modals = document.querySelectorAll('.project-modal');
+const closeButtons = document.querySelectorAll('.close-modal');
+
 function updateParallax() {
     const scrollPosition = slidesContainer.scrollTop;
     
@@ -133,6 +138,41 @@ slidesContainer.addEventListener('scroll', () => {
     scrollTimeout = setTimeout(() => {
         mobileArrow.style.opacity = '1';
     }, 1000);
+});
+
+//modal stuff
+
+projectButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const modalId = button.dataset.modal;
+        const modal = document.getElementById(modalId);
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        button.closest('.project-modal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+});
+
+window.onclick = (event) => {
+    if (event.target.classList.contains('project-modal')) {
+        event.target.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+};
+
+// Close with ESC key
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        modals.forEach(modal => {
+            modal.style.display = 'none';
+        });
+        document.body.style.overflow = 'auto';
+    }
 });
 
 // Initial update

@@ -21,6 +21,7 @@ font-weight: 300; */
     --pastel-green: #b3ffb3;
     --accent-purple: #7E5185;
     --accent-blue: #3A506B;
+    --accent-green: #1D8348;
 }
 
 * {
@@ -73,7 +74,7 @@ body {
 .slide:nth-child(1) .slide-number { color: var(--pastel-red); }
 .slide:nth-child(2) .slide-number { color: var(--pastel-blue); }
 .slide:nth-child(3) .slide-number { color: var(--pastel-green); } 
-.slide:nth-child(4) .slide-number { color: var(--accent-purple); } 
+.slide:nth-child(4) .slide-number { color: var(--pastel-purple); } 
 
 .slide-content {
     background: rgba(255, 255, 255, 0.97);
@@ -246,6 +247,7 @@ body {
 
 .slide[data-slide="2"] .deco-line {
     background: var(--accent-blue);
+    margin-bottom: 0px;
 }
 
 /* Vertical Stack Layout */
@@ -280,11 +282,16 @@ body {
 
 }
 
+.story-column h3{
+    margin-bottom: .75rem;
+}
+
 .story-text {
     font-size: 1.1rem;
     line-height: 1.7;
     max-width: 800px;
     margin: 0 auto 2rem;
+    font-family: var(--font-body);
 }
 
 
@@ -295,21 +302,22 @@ body {
     text-align: center;
 }
 
-/* 3. Skills Grid */
+/* Skills Grid */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    padding: 2rem 0;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
     border-top: 2px solid rgba(0,0,0,0.1);
-    margin-left: 1rem;
-    margin-right: 1rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .skill-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex: 0 0 auto;
+    min-width: 50px;
+    scroll-snap-align: start;
     transition: transform 0.3s ease;
+    position: relative;
+    transform-origin: center;
 }
 
 .skill-item:hover {
@@ -317,12 +325,69 @@ body {
 }
 
 .skill-icon {
-    width: 60px;
-    height: 60px;
-    padding: 12px;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
     background: white;
-    border-radius: 16px;
+    border-radius: 13px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.skill-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.skill-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-blue);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.skill-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #7E5185 transparent transparent transparent;
+}
+
+.skill-wrapper:hover .skill-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.flag-emoji {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px; /* Match other icons */
+    background: white; /* Maintain background */
+    border-radius: 13px; /* Match existing radius */
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08); /* Consistent shadow */
+    width: 50px;
+    height: 50px;
+}
+
+/* Optional: Add hover animation */
+.flag-emoji:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 /* Mobile Optimization */
@@ -341,6 +406,202 @@ body {
         width: 50px;
         height: 50px;
         padding: 10px;
+    }
+
+    /* this is supposed to disable on mobile but idk if this implementation is right, should be hover:none on @media */
+    .skill-tooltip {
+        display: none; /* Disable on touch devices */
+    }
+}
+
+
+/* SLIDE 3 */
+
+/* Project Buttons */
+.project-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    /* padding: 2rem; */
+}
+
+.project-btn {
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.95);
+    border: none;
+    border-radius: 12px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.project-btn:hover {
+    transform: translateX(10px);
+    background: var(--accent-green);
+    color: white;
+}
+
+.project-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-tech {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* .oxchord {
+    height: 20vh;
+    background: url(oxchordfleet.png);
+    background-size: cover;
+    text-align: center;
+} */
+
+
+.oxchord {
+    position: relative; /* Needed for pseudo-element positioning */
+    height: 20vh;
+    text-align: center;
+    /* Remove background from main element */
+}
+
+.oxchord::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(oxchordfleet.png);
+    background-size: cover;
+    filter: blur(3px);
+    transition: opacity 0.3s ease; /* Add transition */
+    opacity: 1; /* Ensure it's visible by default */
+    z-index: -1; /* Push behind content */
+    opacity: 90;
+}
+
+/* Ensure content stays sharp and visible */
+.project-btn {
+    position: relative; /* Creates new stacking context */
+    z-index: 1; /* Brings button above blurred background */
+}
+
+.oxchord .project-title {
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    background: white;
+    background-size: contain;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    font-size: 3rem;
+    display: inline-block;
+    justify-self: center;
+    padding: 0.3rem 0.8rem;
+}
+
+.project-btn.oxchord .project-tech {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: 
+        opacity 0.3s ease-in-out,
+        max-height 0.3s ease-in-out,
+        transform 0.3s ease-in-out;
+    transform: translateY(-10px);
+    visibility: hidden;
+    display: block;
+}
+
+.project-btn.oxchord:hover .project-title {
+    color: white;
+    background: none;
+    box-shadow: none;
+    /* transform: translateY(0); */
+    /* visibility: visible; */
+    /* transition-delay: 0.1s; */
+}
+
+/* Correct hover selector - no space between classes */
+.project-btn.oxchord:hover .project-tech {
+    opacity: 1;
+    max-height: 100px; /* Must set explicit height */
+    transform: translateY(0);
+    visibility: visible;
+    transition-delay: 0.1s;
+}
+
+.project-btn.oxchord:hover::before {
+    opacity: 0;
+}
+
+.project-btn:hover::after {
+    opacity: 0.5;
+    transform: translateY(3px);
+}
+
+/* Project Modals */
+.project-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 1200px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.close-modal {
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.live-demo-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #7E5185;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .modal-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
     }
 }
 
