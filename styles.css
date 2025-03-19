@@ -427,6 +427,10 @@ body {
     /* padding: 2rem; */
 }
 
+.project-content {
+    max-height: 80vh;
+}
+
 .project-btn {
     padding: 1.5rem;
     background: rgba(255,255,255,0.95);
@@ -457,17 +461,10 @@ body {
     opacity: 0.8;
 }
 
-/* .oxchord {
-    height: 20vh;
-    background: url(oxchordfleet.png);
-    background-size: cover;
-    text-align: center;
-} */
-
-
 .oxchord {
     position: relative; /* Needed for pseudo-element positioning */
     height: 20vh;
+    width: 100%;
     text-align: center;
     /* Remove background from main element */
 }
@@ -505,6 +502,18 @@ body {
     display: inline-block;
     justify-self: center;
     padding: 0.3rem 0.8rem;
+}
+
+.secondary-projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 2rem;
+}
+
+.secondary-project {
+    height: 20vh;
+    padding: 1rem;
 }
 
 .project-btn.oxchord .project-tech {
