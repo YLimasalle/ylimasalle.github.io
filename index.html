@@ -59,7 +59,7 @@
 
                 <div class="photo-container">
                     <div class="photo-frame">
-                        <img src="italy2.jpg" alt="Yohanes In Italy" class="profile-photo">
+                        <img src="./photos/italy2.jpg" alt="Yohanes In Italy" class="profile-photo">
                         <div class="photo-gradient"></div>
                     </div>
                 </div>
@@ -81,10 +81,10 @@
                     <div class="story-column">
                         <h3>Howdy!</h3>
                         <p class="story-text">
-                            I'm just a guy who grew up with a fascination in computer science and followed that curiosity 
-                            all the way to a bachelor's degree. Currently my focus with coding revolves around empowering 
+                            I'm just a guy who grew up playing too many video games that turned into a fascination of computer science.
+                            I then followed that fascination all the way to a bachelor's degree. Currently my focus with coding revolves around empowering 
                             individuals to achieve their goals through apps and experiences. <br>
-                            My mission in computer science is to build technology that elevates the human experience—freeing 
+                            My mission with my career is to build technology that elevates the human experience—freeing 
                             musicians to create, entrepreneurs to innovate, athletes to compete, and so on. I want to design solutions 
                             that handle the nitty-gritty behind the scenes, so people can focus on what they want to do.
                         </p>
@@ -242,20 +242,20 @@
 
                         <!-- Project 3 -->
                         <button class="project-btn secondary-project" data-modal="project3">
-                            <span class="project-title">Buffrun</span>
-                            <span class="project-tech">Small group finder, because life's better in bunches</span>
+                            <span class="project-title">Buff Traffic</span>
+                            <span class="project-tech">Real-time and predictive crowd tracking app for CU</span>
                         </button>
 
                         <!-- Project 4 -->
                         <button class="project-btn secondary-project" data-modal="project4">
                             <span class="project-title">Hack CU X - Metanoia</span>
-                            <span class="project-tech">Small group finder, because life's better in bunches</span>
+                            <span class="project-tech">Unwind and reflect with this noncommittal journaling extension</span>
                         </button>
 
                         <!-- Project 5 -->
                         <button class="project-btn secondary-project" data-modal="project5">
-                            <span class="project-title">SASE NERC 2021</span>
-                            <span class="project-tech">Small group finder, because life's better in bunches</span>
+                            <span class="project-title">SASE NERC 2021 - Chair</span>
+                            <span class="project-tech">Helped plan and execute SASE's largest regional conference</span>
                         </button>
 
                     </div>
@@ -293,22 +293,37 @@
             <div id="project1" class="project-modal">
                 <div class="modal-content">
                     <span class="close-modal">&times;</span>
-                    <h3>E-Commerce Platform</h3>
+                    <h2>A music discorvery app, tailored for small local artists</h2>
                     <div class="modal-body">
                         <div class="modal-columns">
                             <div class="modal-info">
-                                <h4>Overview</h4>
-                                <p>Built a full-stack e-commerce solution handling 10k+ monthly users...</p>
-                                <h4>Technologies</h4>
+                                <h3>Overview</h3>
+                                <p>Oxchord is a social music platform for artists looking to build a local community of fans and other music makers. Post your music from whatever platform you upload on, and hear music from the platforms you don't subscribe to.
+                                    <br>
+                                    <br>
+                                    Our goal is to make music discovery and artist appreciation easier for everyone. No matter why you love music, we want to make a place where fans can find it, and artists can finally get heard.
+                                </p>
+                                <h3>Tech Stack</h3>
                                 <ul class="tech-list">
-                                    <li>React + Redux</li>
-                                    <li>Node.js Microservices</li>
-                                    <li>MongoDB Atlas</li>
+                                    <li>Ionic React</li>
+                                    <li>ASP.NET Core</li>
+                                    <li>PostgreSQL</li>
+                                    <li>AWS Cognito + S3</li>                               
                                 </ul>
                             </div>
+                            <!-- should be screenshots of the project,  -->
                             <div class="modal-media">
-                                <img src="project1-screenshot.jpg" alt="Project Screenshot">
-                                <a href="#" class="live-demo-btn">Live Demo</a>
+                                <img src="./photos/oximg1.png" alt="Oxchord preview image 1">
+                                <img src="./photos/oximg2.png" alt="Project Screenshot">
+                                <!-- should be separate? this is just links to ig, landing page, app -->
+                                <br>
+                                <a href="https://www.oxchord.com/" class="live-demo-btn">Landing Page</a>
+                                <a href="https://www.instagram.com/oxchord.music/" class="live-demo-btn">Instagram</a>
+                                <a href="https://app.oxchord.com/" class="live-demo-btn">Web App</a>
+
+                                <a href="https://apps.apple.com/us/app/oxchord/id6499107333" class="live-demo-btn">App Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.oxchord.dev&hl=en_US" class="live-demo-btn">Google Play</a>
+
                             </div>
                         </div>
                     </div>
@@ -318,22 +333,24 @@
             <div id="project2" class="project-modal">
                 <div class="modal-content">
                     <span class="close-modal">&times;</span>
-                    <h3>E-Commerce Platform</h3>
+                    <h2>An app for finding and merging small groups of friends</h2>
                     <div class="modal-body">
                         <div class="modal-columns">
                             <div class="modal-info">
-                                <h4>Overview</h4>
-                                <p>Built a full-stack e-commerce solution handling 10k+ monthly users...</p>
-                                <h4>Technologies</h4>
+                                <h3>Overview</h3>
+                                <p>Inspired by the best way to warm intro friends and born out of the social isolation of COVID, we made Trndapp. 
+                                    Trndapp is an app that lets your close-knit group of friends go out and meet other groups of friends.
+                                    No anxious one-on-one encounters, just a fun night out with people you know and people you can get to know.
+                                </p>
+                                <h3>Technologies</h3>
                                 <ul class="tech-list">
-                                    <li>React + Redux</li>
-                                    <li>Node.js Microservices</li>
-                                    <li>MongoDB Atlas</li>
+                                    <li>Ionic Angular</li>
+                                    <li>Node.js</li>
+                                    <li>AWS DynamoDB, S3, Lambda, Cognito</li>
                                 </ul>
                             </div>
                             <div class="modal-media">
                                 <img src="project1-screenshot.jpg" alt="Project Screenshot">
-                                <a href="#" class="live-demo-btn">Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -343,28 +360,59 @@
             <div id="project3" class="project-modal">
                 <div class="modal-content">
                     <span class="close-modal">&times;</span>
-                    <h3>E-Commerce Platform</h3>
+                    <h2>A crowd-tracking app specifically made for CU Boulder</h2>
                     <div class="modal-body">
                         <div class="modal-columns">
                             <div class="modal-info">
-                                <h4>Overview</h4>
-                                <p>Built a full-stack e-commerce solution handling 10k+ monthly users...</p>
-                                <h4>Technologies</h4>
+                                <h3>Overview</h3>
+                                <p>Your one-stop shop for tracking the herd. BuffTraffic is your real-time and predictive guide to campus life, tracking busy hotspots like libraries, dining halls, and rec centers. 
+                                    Spend less time waiting—and more time thriving.
+
+                                </p>
+                                <h3>Technologies</h3>
                                 <ul class="tech-list">
-                                    <li>React + Redux</li>
-                                    <li>Node.js Microservices</li>
-                                    <li>MongoDB Atlas</li>
+                                    <li>Bootstrap</li>
+                                    <li>Express/Node.js</li>
+                                    <li>PostgreSQL</li>
+                                    <li>Docker</li>
+                                    <li>Azure</li>
                                 </ul>
                             </div>
                             <div class="modal-media">
                                 <img src="project1-screenshot.jpg" alt="Project Screenshot">
-                                <a href="#" class="live-demo-btn">Live Demo</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Repeat modals for other projects -->
+
+            <div id="project4" class="project-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>An app for finding and merging small groups of friends</h2>
+                    <div class="modal-body">
+                        <div class="modal-columns">
+                            <div class="modal-info">
+                                <h3>Overview</h3>
+                                <p>Inspired by the best way to warm intro friends and born out of the social isolation of COVID, we made Trndapp. 
+                                    Trndapp is an app that lets your close-knit group of friends go out and meet other groups of friends.
+                                    No anxious one-on-one encounters, just a fun night out with people you know and people you can get to know.
+                                </p>
+                                <h3>Technologies</h3>
+                                <ul class="tech-list">
+                                    <li>Ionic Angular</li>
+                                    <li>Node.js</li>
+                                    <li>AWS DynamoDB, S3, Lambda, Cognito</li>
+                                </ul>
+                            </div>
+                            <div class="modal-media">
+                                <img src="project1-screenshot.jpg" alt="Project Screenshot">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
     <div class="mobile-arrow" id="mobileArrow">
         <svg viewBox="0 0 24 24">
